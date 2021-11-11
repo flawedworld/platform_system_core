@@ -1172,6 +1172,12 @@ on property:persist.native_debug=true
 on property:persist.native_debug=false
     write /proc/sys/kernel/yama/ptrace_scope 2
 
+on property:persist.tcp_timestamp_disable=true
+    write /proc/sys/net/ipv4/tcp_timestamps 0
+
+on property:persist.tcp_timestamp_disable=false
+    write /proc/sys/net/ipv4/tcp_timestamps 1
+
 # perf_event_open syscall security:
 # Newer kernels have the ability to control the use of the syscall via SELinux
 # hooks. init tests for this, and sets sys_init.perf_lsm_hooks to 1 if the
